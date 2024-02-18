@@ -1,5 +1,6 @@
 package org.codSoft.numberGame;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,17 +21,24 @@ public class NumberGame {
         int attempts = 8;
 
         System.out.println("You have " + attempts + " to win the game!");
-        System.out.println(answer);
+
         while (attempts != 0) {
             System.out.println("\nGuess a number between the range (1-100): ");
-            int guess = userInput.nextInt();
 
-            if (guess == answer)
-                break;
-            else {
-                attempts--;
-                incorrectGuess(attempts, answer, guess);
+            try {
+                int guess = userInput.nextInt();
+                if (guess == answer)
+                    break;
+                else {
+                    attempts--;
+                    incorrectGuess(attempts, answer, guess);
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a number e.g 5");
+                userInput.nextLine();
             }
+
         }
         gameResults(attempts, answer);
     }
