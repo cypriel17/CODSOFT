@@ -8,4 +8,4 @@ The game provides feedback on each guess and allows users to play multiple round
 
 1. Clone the repository to your local machine.
    ```bash
-   git clone https://github.com/cypriel17/NumberGame.git
+   git clone https://github.com/cypriel17/numberGame.git
