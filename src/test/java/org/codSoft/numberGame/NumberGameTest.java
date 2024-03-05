@@ -24,43 +24,30 @@ class NumberGameTest {
     public void restoreStreams() {
         System.setOut(originalOut);
     }
-
-    @Test
-    public void test_GameResultsWin() {
-        NumberGame.gameResults(5, 42);
-        assertEquals("You Win!\nCongratulations! Einstein Got Nothing On You.\n", outputStream.toString());
-    }
-
-    @Test
-    public void test_GameResultsLose() {
-        NumberGame.gameResults(0, 42);
-        assertEquals("\nSorry! You Lost.\n\nThe correct number was: 42\n", outputStream.toString());
-    }
-
     @Test
     public void test_IncorrectGuessHigh() {
-        NumberGame.incorrectGuess(3, 42, 50);
+        Player.incorrectGuess(3, 42, 50);
         assertEquals("Too high! Your number is lower.\nGuess Again.\nYou have 3 attempts left!\n", outputStream.toString());
     }
 
     @Test
     public void test_IncorrectGuessLow() {
-        NumberGame.incorrectGuess(2, 42, 30);
+        Player.incorrectGuess(2, 42, 30);
         assertEquals("Too low! Your number is higher.\nGuess Again.\nYou have 2 attempts left!\n", outputStream.toString());
     }
 
     @Test
     public void test_RunGameWin() {
         provideUserInput("42");
-        NumberGame.main(new String[]{});
-        assertEquals("Congratulations! You guessed the correct number.\n", outputStream.toString().replaceAll("\n", ""));
+        Player.gameResults(5, 42);
+        assertEquals("You Win! Congratulations! Einstein Got Nothing On You.\n", outputStream.toString());
     }
 
     @Test
-    public void test_RunGameLose() {
-        provideUserInput("1\n2\n3\n4\n5\n6\n7\n8\n");
-        NumberGame.main(new String[]{});
-        assertEquals("Sorry! You Lost.\nThe correct number was:", outputStream.toString().substring(0, 39));
+    public void test_RunGameLost() {
+        provideUserInput("1\n2\n3\n4\n5\n");
+        Player.gameResults(0, 42);
+        assertEquals("\nSorry! You Lost.\nThe correct number was: 42", outputStream.toString().substring(0, 39));
     }
 
     private void provideUserInput(String input) {

@@ -1,65 +1,69 @@
 package org.codSoft.numberGame;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class NumberGame {
 
+    private int answer;
+    private int chances;
+    private NumberGenerator generator;
+    private Player player;
+
+    public NumberGame(NumberGenerator generator) {
+        this.generator = generator;
+        this.answer = Integer.parseInt(generator.numGenerator());
+        this.chances = 5;
+        this.player = new Player();
+    }
+
     public static void main(String[] args) {
-        int rounds = 3;
-        int attempts = 5;
-
-        for (int round = 1; round <= rounds; round++) {
-            runGame(round, rounds, attempts);
-        }
+        NumberGame numberGame = new NumberGame(new NumberGenerator());
+        numberGame.playGame();
     }
 
-    public static void runGame(int round, int rounds, int attempts) {
-        int answer = (int) (Math.random() * 101);
-        Scanner input = new Scanner(System.in);
+    private void playGame() {
 
-        System.out.println("Round " + round + ": You have " + attempts + " attempts and " + (rounds - round + 1) + " rounds to win the game!");
-        int guess = -1;
+        System.out.println("Welcome to the Number Game! Let's win a trophy.");
+        Scanner scanner = new Scanner(System.in);
+        String playAgain;
 
-        while (guess != answer && attempts > 0) {
-            System.out.print("\nEnter your guess: ");
+        do {
 
-            try {
-                guess = input.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
-                input.next();
-                continue;
+            while (chances > 0) {
+
+                System.out.println(answer);
+
+                try {
+                    int guess = Integer.parseInt(player.getGuess());
+
+                    if (guess == answer) {
+                        Player.gameResults(chances, answer);
+                        break;
+                    } else if (guess > answer) {
+                        this.chances--;
+                        Player.incorrectGuess(chances, answer,guess);
+                    } else {
+                        this.chances--;
+                        Player.incorrectGuess(chances, answer,guess);
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Please enter a valid number.");
+                }
             }
 
-            if (guess == answer) {
-                System.out.println("Congratulations! You guessed the correct number.");
-                break;
-            } else {
-                attempts--;
-                incorrectGuess(attempts, answer, guess);
-            }
-        }
+            System.out.print("Would you like to play again (y/n)? ");
+            playAgain = scanner.nextLine();
 
-        gameResults(attempts, answer);
+            resetGame(generator);
+
+        } while (playAgain.equalsIgnoreCase("y"));
+
     }
 
-    public static void incorrectGuess(int attempts, int answer, int guess) {
-        if (guess > answer) {
-            System.out.println("Too high! Your number is lower.\nGuess Again.");
-        } else {
-            System.out.println("Too low! Your number is higher.\nGuess Again.");
-        }
-
-        System.out.println("You have " + attempts + " attempts left!");
-    }
-
-    public static void gameResults(int attempts, int answer) {
-        if (attempts == 0) {
-            System.out.println("\nSorry! You Lost.");
-            System.out.println("The correct number was: " + answer);
-        } else {
-            System.out.println("You Win!\nCongratulations! Einstein Got Nothing On You.\n");
-        }
+    public void resetGame(NumberGenerator generator) {
+        this.generator = generator;
+        this.answer = Integer.parseInt(generator.numGenerator());
+        this.chances = 5;
+        this.player = new Player();
     }
 }
