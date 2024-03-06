@@ -9,5 +9,8 @@
         <module name="NumberGame" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="robot-world" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

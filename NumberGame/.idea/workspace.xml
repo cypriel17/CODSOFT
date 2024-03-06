@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bb5e496-ae26-4ec3-a6f4-e9de01ae00d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/codSoft/numberGame/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentGradeCalculator/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentGradeCalculator/src/main/java/org/codSoft/StudentGradeCalculator/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentGradeCalculator/src/test/java/studentGradeCalculatorTests/StudentTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/codSoft/numberGame/NumberGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/codSoft/numberGame/NumberGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/codSoft/numberGame/NumberGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/codSoft/numberGame/NumberGameTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +70,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NumberGameTest.test_RunGameWin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NumberGameTest.test_RunGame_Win" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NumberGame" />
       <extension name="coverage">
         <pattern>
@@ -79,8 +80,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.codSoft.numberGame" />
       <option name="MAIN_CLASS_NAME" value="org.codSoft.numberGame.NumberGameTest" />
-      <option name="METHOD_NAME" value="test_RunGameWin" />
+      <option name="METHOD_NAME" value="test_RunGame_Win" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="NumberGame" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="NumberGame" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -88,7 +102,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.NumberGameTest" />
-        <item itemvalue="JUnit.NumberGameTest.test_RunGameWin" />
+        <item itemvalue="JUnit.NumberGameTest.test_RunGame_Win" />
       </list>
     </recent_temporary>
   </component>
