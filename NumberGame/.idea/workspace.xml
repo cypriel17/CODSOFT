@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bb5e496-ae26-4ec3-a6f4-e9de01ae00d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../StudentGradeCalculator/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StudentGradeCalculator/src/main/java/org/codSoft/StudentGradeCalculator/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StudentGradeCalculator/src/test/java/studentGradeCalculatorTests/StudentTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,19 +77,6 @@
       <option name="MAIN_CLASS_NAME" value="org.codSoft.numberGame.NumberGameTest" />
       <option name="METHOD_NAME" value="test_RunGame_Win" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="NumberGame" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="NumberGame" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
