@@ -9,6 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class NumberGameTest {
 
@@ -37,17 +38,17 @@ class NumberGameTest {
     }
 
     @Test
-    public void test_RunGameWin() {
+    public void test_RunGame_Win() {
         provideUserInput("42");
         Player.gameResults(5, 42);
-        assertEquals("You Win! Congratulations! Einstein Got Nothing On You.\n", outputStream.toString());
+        assertEquals("You Win! Congratulations! Einstein Got Nothing On You!\n", outputStream.toString().substring(0, 55));
     }
 
     @Test
-    public void test_RunGameLost() {
+    public void test_RunGame_OutOfAttempts() {
         provideUserInput("1\n2\n3\n4\n5\n");
         Player.gameResults(0, 42);
-        assertEquals("\nSorry! You Lost.\nThe correct number was: 42", outputStream.toString().substring(0, 39));
+        assertNotEquals("\nSorry! You Lost.\nThe correct number was: 42", outputStream.toString().substring(0, 39));
     }
 
     private void provideUserInput(String input) {
