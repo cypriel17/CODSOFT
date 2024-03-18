@@ -2,41 +2,68 @@ package org.codSoft.StudentGradeCalculator;
 
 import java.util.List;
 
-public class Studies extends Study {
+public abstract class Studies {
     private final String name;
-    private final String argument;
+    private String argument;
+
+    public abstract boolean execute(Student target);
+
+    public Studies(String name) {
+        this.name = name.trim().toLowerCase();
+        this.argument = "";
+    }
 
     public Studies(String name, String argument) {
-        super(name, argument);
-        this.name = name;
-        this.argument = argument;
+        this(name);
+        this.argument = argument.trim();
     }
-    @Override
-    public boolean execute(Student student) {
 
-        switch (getName().toLowerCase()) {
-            case "commerce":
-                List<String> commerceSubjects = List.of("Economics", "BusinessStudies", "Accounting");
-                for (String subject : commerceSubjects) {
-                    student.setStatus("Studying " + subject);
-                }
-                break;
-            case "languages":
-                List<String> languageSubjects = List.of("English", "Afrikaans", "Zulu", "Xhosa");
-                for (String subject : languageSubjects) {
-                    student.setStatus("Studying " + subject);
-                }
-                break;
-            case "science":
-                List<String> scienceSubjects = List.of("Physics", "Chemistry", "Biology", "Geography");
-                for (String subject : scienceSubjects) {
-                    student.setStatus("Studying " + subject);
-                }
-                break;
+    public String getName() {
+        return name;
+    }
+
+    public String getArgument() {
+        return this.argument;
+    }
+
+    static final List<String> languages;
+    static final List<String> nonLanguages;
+
+    static {
+        languages = List.of("afrikaans", "english", "isindebele",
+                "isixhosa", "isizulu", "sesotho",
+                "setswana", "siswati", "sepedi",
+                "tshivenda", "xitsonga"
+        );
+
+        nonLanguages = List.of(
+                "mathematics", "mathslit", "lifesciences", "physics",
+                "accounting", "business", "economics", "geography", "lo",
+                "history", "cat", "religious" ,"consumer", "music", "agriculture", "tourism"
+        );
+    }
+
+    public static Studies create(String instruction) {
+        String[] args = instruction.toLowerCase().trim().split(" ");
+        String subject = args[0];
+        switch (subject) {
+            case "shutdown":
+            case "quit":
+            case "off":
+                return new Shutdown();
+            case "help":
+                return new HelpStudy();
             default:
-                throw new IllegalArgumentException("Unsupported study area: " + getName());
+                if (args.length > 1) {
+                    String grade = args[1];
+                    if (nonLanguages.contains(subject)) {
+                        return new NonLanguage(subject, grade);
+                    } else if (languages.contains(subject)) {
+                        return new Language(subject, grade);
+                    }
+                }
+                throw new IllegalArgumentException("Unsupported command or invalid instruction: " + instruction);
         }
-
-        return true;
     }
+
 }

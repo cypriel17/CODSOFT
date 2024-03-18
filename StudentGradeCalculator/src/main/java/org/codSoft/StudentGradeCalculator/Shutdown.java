@@ -1,6 +1,6 @@
 package org.codSoft.StudentGradeCalculator;
 
-public class Shutdown extends Study {
+public class Shutdown extends Studies {
 
     public Shutdown() {
         super("off");

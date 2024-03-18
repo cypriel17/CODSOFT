@@ -11,17 +11,18 @@ public class GradeDisplay {
         String name = getInput("What is your name? ");
         student = new Student(name);
 
-        Study study;
+        Studies study;
         boolean shouldContinue = true;
         do {
-            String studyDetails = getInput(student.getName() + "> Enter Your Study, And Grade?").strip().toLowerCase();
+            String studyDetails = getInput(student.getName() + "> Enter Your Studies, And Grade?").strip().toLowerCase();
             try {
-                study = Study.create(studyDetails);
+                study = Studies.create(studyDetails);
                 shouldContinue = student.handleStudy(study);
             } catch (IllegalArgumentException e) {
                 student.setStatus("Sorry, I did not understand '" + studyDetails + "'.");
             }
             System.out.println(student);
+            student.showResult();
         } while (shouldContinue);
 
     }

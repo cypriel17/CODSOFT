@@ -1,6 +1,6 @@
 package org.codSoft.StudentGradeCalculator;
 
-public class HelpStudy extends Study {
+public class HelpStudy extends Studies {
     public HelpStudy() {
         super("HelpStudy");
     }
