@@ -44,26 +44,20 @@ public abstract class Studies {
     }
 
     public static Studies create(String instruction) {
-        String[] args = instruction.toLowerCase().trim().split(" ");
-        String subject = args[0];
-        switch (subject) {
-            case "shutdown":
-            case "quit":
-            case "off":
-                return new Shutdown();
-            case "help":
-                return new HelpStudy();
-            default:
-                if (args.length > 1) {
-                    String grade = args[1];
-                    if (nonLanguages.contains(subject)) {
-                        return new NonLanguage(subject, grade);
-                    } else if (languages.contains(subject)) {
-                        return new Language(subject, grade);
-                    }
-                }
-                throw new IllegalArgumentException("Unsupported command or invalid instruction: " + instruction);
+        String[] parts = instruction.toLowerCase().trim().split(" ");
+
+        if (parts.length < 2) {
+            throw new IllegalArgumentException("\nInvalid instruction. Please provide a subject and grade.");
+        }
+        String subject = parts[0];
+        String grade = parts[1];
+
+        if (nonLanguages.contains(subject)) {
+            return new NonLanguage(subject, grade);
+        } else if (languages.contains(subject)) {
+            return new Language(subject, grade);
+        } else {
+            throw new IllegalArgumentException("Unknown subject: " + subject);
         }
     }
-
 }

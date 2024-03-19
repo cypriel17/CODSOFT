@@ -8,7 +8,7 @@ public class Student {
     private String status;
     private String name;
 
-    private final List<Studies> studyRecords = new ArrayList<>();
+    public final List<Studies> studyRecords = new ArrayList<>();
 
     public Student(String name) {
         this.name = name;
@@ -19,6 +19,14 @@ public class Student {
     }
 
     public boolean handleStudy(Studies study) {
+
+        for (Studies existingStudy : studyRecords) {
+            if (existingStudy.getName().equals(study.getName())) {
+                System.out.println("\nSubject " + study.getName() + " already exists in the records.");
+                return true; // Returns true indicating the study is in the records, for the student to retry
+            }
+        }
+
         boolean records = study.execute(this);
         if (records) {
             studyRecords.add(study);
@@ -83,7 +91,7 @@ public class Student {
         System.out.println("Average Grade: " + averageGrade + "\n");
     }
 
-    private String getGradeForPercentage(double percentage) {
+    public String getGradeForPercentage(double percentage) {
         try {
             if (percentage >= 0 && percentage <= 29) {
                 return "F";
